@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets / config locale
+.env
+
+# Node (frontend)
+node_modules/
+dist/
+
+# IDE
+.vscode/
+
+docs/ 
