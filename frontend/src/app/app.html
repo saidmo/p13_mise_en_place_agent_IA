@@ -1,0 +1,34 @@
+<div class="app-layout">
+
+  <section class="board-panel">
+    <app-board #board (fenChange)="onBoardFen($event)"></app-board>
+    <button class="reset-btn" (click)="board.reset()">↺ Réinitialiser l'échiquier</button>
+    <p class="fen-line">Position analysée :<br /><code>{{ fen() }}</code></p>
+  </section>
+
+  <section class="chat-panel">
+    <h1>Assistant Ouvertures d'Échecs</h1>
+
+    <div class="messages">
+      <div *ngFor="let m of messages()" class="msg" [class.user]="m.role === 'user'" [class.agent]="m.role === 'agent'">
+        <div class="bubble" *ngIf="m.role === 'user'">{{ m.text }}</div>
+        <div class="bubble" *ngIf="m.role === 'agent'" [innerHTML]="render(m.text)"></div>
+        <div class="tools" *ngIf="m.tools?.length">🔧 outils : {{ m.tools?.join(', ') }}</div>
+      </div>
+      <div class="msg agent" *ngIf="loading()">
+        <div class="bubble">L'agent réfléchit…</div>
+      </div>
+    </div>
+
+    <div class="input-bar">
+      <input
+        [(ngModel)]="question"
+        (keyup.enter)="send()"
+        placeholder="Pose ta question sur la position…"
+        [disabled]="loading()"
+      />
+      <button (click)="send()" [disabled]="loading() || !question.trim()">Envoyer</button>
+    </div>
+  </section>
+
+</div>

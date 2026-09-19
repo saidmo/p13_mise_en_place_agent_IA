@@ -1,0 +1,35 @@
+.app-layout { display: flex; gap: 1.5rem; max-width: 1100px; margin: 1.5rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; align-items: flex-start; }
+.board-panel { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.chat-panel { flex: 1; min-width: 0; }
+h1 { font-size: 1.3rem; text-align: center; margin-top: 0; }
+
+.reset-btn { padding: 0.4rem 0.8rem; border: 1px solid #ccc; border-radius: 8px; background: #f7f7f7; cursor: pointer; }
+.fen-line { font-size: 0.72rem; color: #666; text-align: center; margin: 0; max-width: 400px; word-break: break-all; }
+
+.messages { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; height: 60vh; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; }
+.msg { display: flex; flex-direction: column; max-width: 90%; }
+.msg.user { align-self: flex-end; align-items: flex-end; }
+.msg.agent { align-self: flex-start; }
+.bubble { padding: 0.6rem 0.9rem; border-radius: 12px; }
+.msg.user .bubble { background: #2563eb; color: white; white-space: pre-wrap; }
+.msg.agent .bubble { background: #f1f1f1; }
+.tools { font-size: 0.75rem; color: #888; margin-top: 0.2rem; }
+
+/* rendu Markdown des réponses de l'agent */
+.msg.agent .bubble p { margin: 0 0 0.5rem; }
+.msg.agent .bubble p:last-child { margin-bottom: 0; }
+.msg.agent .bubble ul, .msg.agent .bubble ol { margin: 0.3rem 0; padding-left: 1.3rem; }
+.msg.agent .bubble li { margin: 0.15rem 0; }
+.msg.agent .bubble a { color: #2563eb; }
+.msg.agent .bubble code { background: #e6e6e6; padding: 0.05rem 0.3rem; border-radius: 4px; font-size: 0.85em; }
+.msg.agent .bubble h1, .msg.agent .bubble h2, .msg.agent .bubble h3 { font-size: 1.05rem; margin: 0.5rem 0 0.3rem; }
+
+.input-bar { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+.input-bar input { flex: 1; padding: 0.6rem; border: 1px solid #ccc; border-radius: 8px; }
+.input-bar button { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer; }
+.input-bar button:disabled { background: #aaa; cursor: not-allowed; }
+
+@media (max-width: 800px) {
+  .app-layout { flex-direction: column; align-items: center; }
+  .chat-panel { width: 100%; }
+}
